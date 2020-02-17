@@ -52,7 +52,7 @@ services:
   storefront:
     restart: unless-stopped
     build:
-      context: ../tpksnab-storefront/
+      context: ../tpk-store/
       dockerfile: ./Dockerfile
     depends_on:
       - web
@@ -61,7 +61,7 @@ services:
   dashboard:
     restart: unless-stopped
     build:
-      context: ../tpksnab-dashboard/
+      context: ../tpk-dashboard/
       dockerfile: ./Dockerfile
     depends_on:
       - web
