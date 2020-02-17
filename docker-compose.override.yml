@@ -12,8 +12,18 @@ services:
       # prevents overshadowing of build-time assets
       - /app/saleor/static/assets
       - /app/templates/templated_email/compiled
+      # mounts local assets instead of build-time assets for local development
+#      - ./webpack-bundle.json:/app/webpack-bundle.json
       # shared volume between celery and web for media
       - saleor-media:/app/media
+
+  dashboard:
+    ports:
+      - 9000:80
+
+  storefront:
+    ports:
+      - 3000:80
 
   db:
     ports:

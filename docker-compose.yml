@@ -33,6 +33,7 @@ services:
       - saleor-backend-tier
     volumes:
       - saleor-redis:/data
+    env_file: common.env
 
   celery:
     build:
@@ -47,6 +48,24 @@ services:
     env_file: common.env
     depends_on:
       - redis
+
+  storefront:
+    restart: unless-stopped
+    build:
+      context: ../tpksnab-storefront/
+      dockerfile: ./Dockerfile
+    depends_on:
+      - web
+    env_file: common.env
+
+  dashboard:
+    restart: unless-stopped
+    build:
+      context: ../tpksnab-dashboard/
+      dockerfile: ./Dockerfile
+    depends_on:
+      - web
+    env_file: common.env
 
 volumes:
   saleor-db:
