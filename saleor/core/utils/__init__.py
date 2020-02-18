@@ -8,12 +8,13 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.db.models import Model
 from django.utils.encoding import iri_to_uri
-from django.utils.text import slugify
+# from django.utils.text import slugify
 from django_countries import countries
 from django_countries.fields import Country
 from django_prices_openexchangerates import exchange_currency
 from geolite2 import geolite2
 from prices import MoneyRange
+from pytils.translit import slugify
 from versatileimagefield.image_warmer import VersatileImageFieldWarmer
 
 georeader = geolite2.reader()
